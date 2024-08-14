@@ -1,0 +1,28 @@
+
+.card{
+    border: none;
+    vertical-align: center;
+    border-radius: 30px;
+    justify-content: center;
+    align-content: center;
+   
+    width: 100%;
+    max-width: 500px; /* Limit maximum width for larger screens */
+    padding: 5%;
+    margin: 30% auto; /* Center the card vertically and horizontally */
+    background: lavenderblush;
+    color: navy;
+    box-shadow: 10px 10px 10px rgb(120, 120, 120);
+}
+
+@media (min-width: 768px) {
+    .card {
+        padding: 4%;
+    }
+}
+
+body{
+    background-image: url("/assets/img 4.jpg") !important;
+    background-size: cover;
+
+}

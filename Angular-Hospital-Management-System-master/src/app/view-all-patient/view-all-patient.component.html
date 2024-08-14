@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Angular App</title>
+
+</head>
+
+<body>
+
+  <!-- The sidebar -->
+  <div class="sidebar">
+    <a routerLink="/doctors">Doctors</a>
+    <a class="active" routerLink="/patients">Patients</a>
+    <a routerLink="/allReports">Reports</a>
+    <a href="/">Log Out</a>
+  </div>
+  <div class="main-content">
+    <!-- Your table component goes here -->
+    <h1 style="text-align: center;margin-bottom: 40px;">Patients</h1>
+    <div class="table-responsive">
+    </div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">User Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Age</th>
+          <th scope="col">Address</th>
+          <th scope="col">Mobile Number</th>
+          <th scope="col">Medical Condition</th>
+          <th scope="col">Report</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tbody>
+          <tr *ngFor="let doctor of patients;let i =index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{doctor.username}}</td>
+            <td>{{doctor.email}}</td>
+            <td>{{doctor.gender}}</td>
+            <td>{{doctor.age}}</td>
+            <td>{{doctor.address}}</td>
+            <td>{{doctor.mobileNumber}}</td>
+            <td>{{doctor.medicalCondition}}</td>
+          <td><button class="btn btn-primary"  (click)="openReport(doctor.userId)">Add Report</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+</body>
+
+</html>

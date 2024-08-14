@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" id="health">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="text-center">
+                        <h1>Register</h1>
+                    </div>
+                    <br>
+
+                    <form #registerForm="ngForm" (ngSubmit)="submitForm(registerForm)">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="formName" class="form-label">
+                                    <h4>Name</h4>
+                                </label>
+                                <input type="text" name="username" class="form-control" id="formFirstName"
+                                    placeholder="Name" required ngModel>
+                            </div>
+                            <div class="col">
+                                <label for="formName" class="form-label">
+                                    <h4>Email</h4>
+                                </label>
+                                <input type="text" name="email" class="form-control" id="formLastName"
+                                    placeholder="Email" required ngModel>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="formName" class="form-label">
+                                    <h4>Age</h4>
+                                </label>
+                                <input type="number" name="age" class="form-control" id="formAge" placeholder="Age"
+                                    required ngModel>
+                            </div>
+                            <div class="col">
+                                <label class="form-label">
+                                    <h4>Gender</h4>
+                                </label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="maleRadio" value="Male"
+                                        required ngModel>
+                                    <label class="form-check-label" for="maleRadio">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="femaleRadio"
+                                        value="Female" required ngModel>
+                                    <label class="form-check-label" for="femaleRadio">Female</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label class="form-label">
+                                    <h4>User Type</h4>
+                                </label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="userType" id="doctorRadio"
+                                        value="Doctor" required ngModel (change)="toggleFields()">
+                                    <label class="form-check-label" for="doctorRadio">Doctor</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="userType" id="patientRadio"
+                                        value="Patient" required ngModel (change)="toggleFields()">
+                                    <label class="form-check-label" for="patientRadio">Patient</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="formName" class="form-label" *ngIf="showSpecialization">
+                                    <h4>Specialization</h4>
+                                </label>
+                                <input type="text" *ngIf="showSpecialization" name="specialization"
+                                    class="form-control" id="formSpecialization" placeholder="Specialization" required
+                                    ngModel>
+                                <label for="formName" class="form-label" *ngIf="showMedicalCondition">
+                                    <h4>Medical Condition</h4>
+                                </label>
+                                <input type="text" *ngIf="showMedicalCondition" name="medicalCondition"
+                                    class="form-control" id="formMedicalCondition" placeholder="Medical Condition"
+                                    required ngModel>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="formName" class="form-label">
+                                    <h4>Mobile Number</h4>
+                                </label>
+                                <input type="tel" name="mobileNumber"  class="form-control" id="formMobileNumber"
+                                    placeholder="Mobile Number" required ngModel maxlength="10">
+                            </div>
+                            <div class="col">
+                                <label for="formName" class="form-label">
+                                    <h4>Password</h4>
+                                </label>
+                                <input type="password" name="password" class="form-control" id="formPassword"
+                                    placeholder="Password" required ngModel>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="formAddress" class="form-label">
+                                    <h4>Address</h4>
+                                </label>
+                                <textarea name="address" class="form-control" id="formAddress" rows="3" required
+                                    ngModel></textarea>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-block" style="text-align: center;">
+                            <button style="margin: 5px;" class="btn btn-success" type="submit">Register</button>
+                            <button style="margin: 5px;" class="btn btn-warning" type="button"
+                                (click)="resetForm(registerForm)">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

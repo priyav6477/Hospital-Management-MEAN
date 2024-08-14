@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Angular App</title>
+
+</head>
+<body>
+
+<!-- The sidebar -->
+<div class="sidebar">
+    <a routerLink="/doctors">Doctors</a>
+
+    <a routerLink="/patients">Patients</a>
+    <a class="active" routerLink="/allReports">View Report</a>
+    <a href="/">Log Out</a>
+  </div>
+
+<div class="main-content">
+
+<h1 style="text-align: center;margin-bottom: 40px;">Reports</h1>
+    <div class="dropdown-container">
+        <label for="status">Filter By Status:&nbsp;</label>
+        <select id="status" (change)="statusChanged($event)">
+          <option value="Admitted">Admitted</option>
+          <option value="Discharged">Discharged</option>
+          <option value="Emergency">Emergency</option>
+          <option value="Critical Care">Critical Care</option>
+          <option value="Under observation">Under Observation</option>
+        </select>
+      </div>
+  <!-- Your table component goes here -->
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Patient Name</th>
+          <th scope="col">Doctor Name</th>
+          <th scope="col">Chief Complaint</th>
+          <th scope="col">Symptoms</th>
+          <th scope="col">Medical History</th>
+          <th scope="col">Diagnostic Tests</th>
+          <th scope="col">Treatment</th>
+          <th scope="col">Current Status</th>
+          <th scope="col">Update</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let report of reports;let i =index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{report.patientName}}</td>
+          <td>{{report.doctorName}}</td>
+          <td>{{report.chiefComplaint}}</td>
+          <td>{{report.symptoms}}</td>
+          <td>{{report.medicalHistory}}</td>
+  
+          <td>{{report.diagnosticTests}}</td>
+          <td>{{report.treatment}}</td>
+          <td>{{report.status}}</td>
+          <td>
+              <select id="statusSelect" name="status" class="form-control" >
+                <option value="Admitted">Admitted</option>
+                <option value="Discharged">Discharged</option>
+                <option value="Emergency">Emergency</option>
+                <option value="Critical Care">Critical Care</option>
+                <option value="Under observation">Under Observation</option>
+              </select>
+            </td>
+            <td><button class="btn btn-primary" (click)="updateStatus(report.reportId)">Submit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  
+
+</div>
+
+</body>
+</html>
+
+ 

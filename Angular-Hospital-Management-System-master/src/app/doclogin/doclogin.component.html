@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container" id="health">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+        </div>
+        <form>
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label"><h4>Email</h4></label>
+            <input type="text" name="username" [(ngModel)]="username" class="form-control" id="formGroupExampleInput" placeholder="Email" required>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label"><h4>Password</h4></label>
+            <input type="password" name="password" [(ngModel)]="password" class="form-control" id="formGroupExampleInput2" placeholder="Password" required>
+          </div>
+          <div class="d-grid gap-2 d-md-block" style="text-align: center;">
+            <button (click)=checkLogin() style="margin: 5px;" class="btn btn-success" type="button">Login</button>
+            <button style="margin: 5px;" class="btn btn-warning" type="button">Cancel</button>
+          </div>
+        </form>
+        <p style="text-align: center;">Don't have an account? <a href="/docRegister" id='log'>Register</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
